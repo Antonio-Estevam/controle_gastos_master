@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="92.97" height="80.85" viewBox="0 0 92.97 80.85">
+  <defs>
+    <filter id="home-solid" x="0" y="0" width="92.97" height="80.85" filterUnits="userSpaceOnUse">
+      <feOffset dx="3" dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feFlood flood-color="#fff" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#home-solid)">
+    <path id="home-solid-2" data-name="home-solid" d="M24.794,42.129,8.48,55.3V69.512A1.4,1.4,0,0,0,9.9,70.9l9.915-.025a1.4,1.4,0,0,0,1.409-1.388v-8.3A1.4,1.4,0,0,1,22.636,59.8H28.3a1.4,1.4,0,0,1,1.416,1.388v8.295a1.374,1.374,0,0,0,.413.984,1.43,1.43,0,0,0,1,.408l9.912.027a1.4,1.4,0,0,0,1.416-1.388V55.289l-16.31-13.16a1.1,1.1,0,0,0-1.354,0ZM50.563,51.08l-7.4-5.976V33.091A1.051,1.051,0,0,0,42.1,32.05H37.149a1.051,1.051,0,0,0-1.062,1.041v6.3L28.165,33a4.314,4.314,0,0,0-5.4,0L.37,51.08a1.027,1.027,0,0,0-.142,1.466l2.256,2.689a1.077,1.077,0,0,0,1.5.141l20.813-16.8a1.1,1.1,0,0,1,1.354,0l20.814,16.8a1.077,1.077,0,0,0,1.5-.139l2.256-2.689a1.027,1.027,0,0,0-.15-1.468Z" transform="translate(18.02 -14.05)" fill="#23a8f1"/>
+  </g>
+</svg>

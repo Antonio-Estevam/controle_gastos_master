@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="111.289" height="140.038" viewBox="0 0 111.289 140.038">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1" y1="0.337" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#0b062e"/>
+      <stop offset="1" stop-color="#7e0a0a"/>
+    </linearGradient>
+    <filter id="Caminho_2" x="0" y="0" width="111.289" height="140.038" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feFlood flood-opacity="0.569"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Caminho_2)" style="mix-blend-mode: multiply;isolation: isolate">
+    <path id="Caminho_2-2" data-name="Caminho 2" d="M156.745,364.637,124.354,458.8s11.019,5.844,30.053,3.172c4.007-12.021,5.343-17.2,5.343-17.2h23.708s9.684-11.687,10.185-21.872H167.6l14.192-43.243A45.471,45.471,0,0,0,156.745,364.637Z" transform="translate(-108.35 -348.64)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>
