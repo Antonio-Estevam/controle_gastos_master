@@ -2,18 +2,24 @@
     </header>
 
     <div id="container1">
+        
         <div id="conteudoLogad">
             <img src="/img/user-sem-Img.png" alt="Foto do perfil" class="imgPerfil">
+            
             <h2>
                 <img src="/img/user-solid.svg" alt="user">
-                Antonio{{user}}
-            </h2>         
+                
+
+                {{data.0.name}}
+            </h2>
 
             <p class="txCinza">Tipo:</p>
-            <p class="txAzul">Admin</p>
+            <p class="txAzul">{{data.0.user_type}}</p>
 
             <p class="txCinza">Login:</p>
-            <p class="txAzul">jhonnyimmbe@gmail.com</p>
+            <p class="txAzul">{{data.0.email}}</p>
+            
+         
         </div>
     </div>
 
@@ -39,8 +45,13 @@
                 </li>
             </ul>
         </nav>
+
+        <div id="controNav">
+            <div id="controNavBt"></div>
+        </div>
     
 
+        <a href="/novaconta">Nova conta</a>
 
         <table id="table_contas">
             <tr>
@@ -51,21 +62,32 @@
                     <td>Valor</td>
                     <td>Status</td>
                     <td>Ações</td>            
-                </tr>
+                </tr>               
+            
+           {{#each data}}
+                <tr id="contaLinha" class="Conta{{status}}"> 
+                        
+                        <td>{{id_conta}}</td>
+                        <td>{{nome}}</td>
+                        <td>{{descricao}}</td>
+                        <td>{{#brasil data_vencimento}}{{/brasil}}</td>
+                        <td>{{valor}}</td>
+                        <td ><input type="hidden"  value="{{status}}" id="status">{{status}}</td>
+                        <td>
+                            <a href="#"><img src="/img/edit.svg" alt="Editar"></a>
+                            <a href="/deletar/{{id_conta}}"><img src="/img/trash.svg" alt="Excluir"></a>
 
-            <tr>
-                    <td>01</td>
-                    <td>Academia</td>
-                    <td>pobre</td>
-                    <td>22-03-2020</td>
-                    <td>150.00</td>
-                    <td>#</td>
-                    <td># # #</td>            
-                </tr>
+                        </td>          
+                    </tr>
+                {{/each}}
+            
 
         </table>
 
+        {{{h1}}}
+
     </div>
+
 
 
 

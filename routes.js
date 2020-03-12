@@ -18,6 +18,9 @@ routes.get("/",(req,res)=>{
     res.render('index');
     
 });
+
+let idUsuLogado;
+
 routes.post("/logar",urlencodeParser,(req,res)=>{
    let conta ={ 
     email:req.body.email,
@@ -30,6 +33,8 @@ routes.post("/logar",urlencodeParser,(req,res)=>{
     if(String(conta.password) === String(results[0].password)){
             if(String(results[0].user_type) === "user")
             {
+                
+                
                 res.send("bem vindo ususário comum");
             }
             else if(String(results[0].user_type) === "admin")
@@ -38,7 +43,11 @@ routes.post("/logar",urlencodeParser,(req,res)=>{
             }
             else if(String(results[0].user_type) === "master")
             {
-                res.redirect("/cadtela");
+                idUsuLogado = results[0].id_user;            
+                
+                
+                res.redirect("/cadtela"); 
+
             }       
             
             }else{
@@ -47,8 +56,25 @@ routes.post("/logar",urlencodeParser,(req,res)=>{
     });
 });
 
+routes.get("/novaconta",(req,res) =>{
+    res.render('novaconta');
+});
+
+
 routes.get("/cadtela",(req,res)=>{
-    res.render('cadtela');
+    sql.query("use controle_gastos");
+    sql.query("SELECT * FROM contas INNER JOIN user ON contas.id_user = user.id_user WHERE user.id_user= ?",idUsuLogado,(err,results,fields)=>{
+        
+        res.render('cadtela',{data: results});
+
+     }); 
+});
+
+routes.get("/deletar/:id",(req,res)=>{
+    //res.send(req.param.id_user);
+    
+    sql.query("DELETE FROM controle_gastos.contas  WHERE id_conta=?",[req.params.id]);
+    res.redirect("/cadtela");
 });
 
     //cadastro de Usuarios 
@@ -69,6 +95,24 @@ routes.post("/cadastrar",urlencodeParser,(req,res)=>{
             res.render('cadOk',{name:req.body.name});
         }
     });
+
+routes.post("/inserirconta",urlencodeParser,(req,res)=>{
+    sql.query("INSERT INTO controle_gastos.contas (nome,data_compra,data_vencimento,descricao,valor,id_user,status) VALUES (?,?,?,?,?,?,?)",
+    [
+        req.body.nome,
+        req.body.data_compra,
+        req.body.data_vencimento,
+        req.body.descricao,
+        req.body.valor,
+        req.body.id_user,
+        req.body.status        
+    ]
+    );
+    res.redirect("/cadtela");
+
+});    
+
+    
 
     //cadastrar contas 
     

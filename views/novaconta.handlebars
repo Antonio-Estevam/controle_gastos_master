@@ -1,0 +1,44 @@
+    <div id="container1">
+        
+        <div id="conteudoLogad">
+            <img src="/img/user-sem-Img.png" alt="Foto do perfil" class="imgPerfil">
+            
+            <h2>
+                <img src="/img/user-solid.svg" alt="user">
+                
+
+                {{data.0.name}}
+            </h2>
+
+            <p class="txCinza">Tipo:</p>
+            <p class="txAzul">{{data.0.user_type}}</p>
+
+            <p class="txCinza">Login:</p>
+            <p class="txAzul">{{data.0.email}}</p>
+            
+         
+        </div>
+    </div>
+
+    <div id="container2">
+        <form action="/inserirconta" method="post">
+
+            <input type="text" placeholder="Nome:" required name="nome">
+            <input type="date" placeholder="Data Compra" required name="data_compra">
+            <input type="date" placeholder="Data Vencimento" required name="data_vencimento">
+            <input type="text" placeholder="Descrição" name="descricao">
+            <input type="number" placeholder="valor:" required name="valor">
+            <input type="number" required name="id_user">
+
+            <select name="status" id="status">
+                <option value="Paga">Paga</option> 
+                <option value="Pendente">Pendente</option> 
+                <option value="Vencida">Vencida</option> 
+            </select>
+
+            <button type="submit">Enviar</button>
+
+        </form>
+
+
+    </div>

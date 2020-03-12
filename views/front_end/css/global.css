@@ -172,10 +172,124 @@
     list-style:none;
 }
 
+#controNav{
+    margin-top: 60px;
+    margin-bottom: 30px;
+    width:70%;
+    background-color: #24252F;
+    border-radius: 10px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+    padding-left: 20px;
+
+}
+
+#controNavBt{
+    display: block;
+    background-color: #23A8F1;
+    width:10%;
+    height:8px;
+    margin-top:2px;
+    border-radius: 5px;
+    
+  transition-delay:3s;
+}
+
+#controNavBt:hover{
+  background-color: red;
+  margin-left: 40px;
+}
+
 #table_contas{
-background-color: red;
+background-color: #24252F;
 position: relative;
 flex-direction: column;
+height:57px;
+width: 95%;
+margin-left: -50px;
+color:#23A8F1;
+
+}
+
+#table_contas .ContaVencida{    
+    color:#C90C0F;
+    background-color:rgba(252, 207, 207, 0.199);
+    }
+#table_contas .ContaPaga{    
+    color:#00FC4C;    
+    background-color:rgba(139, 167, 133, 0.199);
+    }
+
+#table_contas .ContaPendente{  
+    color:#377da3;
+    background: rgba(85, 113, 128, 0.61);
+    }
+
+    
+#table_contas td a img{
+        margin:5px;
+        opacity:0.5;
+    }
+    #table_contas td a img:hover{
+        opacity:0.9;
+    }    
+
+
+/*caixa de alerta */
+
+.modal-aviso{
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,.5);
+    color:#fff;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.modal{
+    background-color: black;
+    width: 60%;
+    min-width: 300px;
+    padding: 40px;
+    position: relative;
+}
+
+@keyframes modal{
+    form{
+        opacity: 0;
+        transform: translate3d(0,-60px,0);
+    }
+    to{
+        opacity: 1;
+        transform: translate3d(0,0,0);
+    }
+}
+
+.mostrar .modal {
+    animation: modal .3s;
+}
+
+.mostrar {
+    display: flex;
+}
+
+.fechar{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px solid white;
+    background-color:blue;
+    color: white;
+    cursor: pointer;
 }
 
 

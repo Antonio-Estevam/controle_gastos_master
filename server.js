@@ -3,22 +3,22 @@ const bodyParser= require('body-parser');
 const mysql= require('mysql');
 const handlebars= require('express-handlebars');
 const routes = require('./routes');
+const moment =  require('moment');
 
 const app = express();
 
- //liberando diretorio img para usar os arquivos  
- //app.use('/views/img',express.static('img'));
+
  app.use('/css', express.static(__dirname +'/views/front_end/css'));
  app.use('/img', express.static(__dirname +'/views/front_end/img'));
- //app.use('/js',express.static('js'));
+ app.use('/js', express.static(__dirname +'/views/front_end/js'));
 
 const PORT = 3000;
 
-//app.use(express.json()); 
 app.use(routes);
-//app.use(routes);
 
-app.engine("handlebars",handlebars({defaultLayout: 'main'}));
+app.engine("handlebars",handlebars({defaultLayout: 'main', helpers:{brasil:(data) =>{
+    return moment(data).locale('pt-br').format('l')
+}}}));
 app.set('view engine','handlebars');
 
 app.listen(PORT,(req,res)=>{
