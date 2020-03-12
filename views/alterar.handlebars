@@ -1,0 +1,45 @@
+<div id="container1">
+        
+        <div id="conteudoLogad">
+            <img src="/img/user-sem-Img.png" alt="Foto do perfil" class="imgPerfil">
+            
+            <h2>
+                <img src="/img/user-solid.svg" alt="user">
+                
+
+                {{data.0.name}}
+            </h2>
+
+            <p class="txCinza">Tipo:</p>
+            <p class="txAzul">{{data.0.user_type}}</p>
+
+            <p class="txCinza">Login:</p>
+            <p class="txAzul">{{data.0.email}}</p>
+            
+         
+        </div>
+    </div>
+
+    <div id="container2">
+        <form action="/alterarconta" method="post">
+            {{#data}}
+            <input type="text"  required name="nome" value="{{nome}}">
+            <input type="hidden" name="id_conta" value="{{id_conta}}">
+            <input type="date"  required name="data_compra" value="{{#brasil data_compra }}{{/brasil}}">
+            <input type="date"  required name="data_vencimento"  value="{{#brasil data_vencimento}}{{/brasil}}">
+            <input type="text"  name="descricao" value="{{descricao}}">
+            <input type="number" required name="valor" value="{{valor}}">
+
+            <select name="status" id="status">
+                <option value="{{status}}">Estado <strong>{{status}}.</strong> selecione outro status</option>
+                <option value="Paga">Paga</option> 
+                <option value="Pendente">Pendente</option> 
+                <option value="Vencida">Vencida</option> 
+            </select>
+
+            <button type="submit">Enviar</button>
+        {{/data}}
+        </form>
+
+
+    </div>

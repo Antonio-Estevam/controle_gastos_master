@@ -96,22 +96,53 @@ routes.post("/cadastrar",urlencodeParser,(req,res)=>{
         }
     });
 
-routes.post("/inserirconta",urlencodeParser,(req,res)=>{
-    sql.query("INSERT INTO controle_gastos.contas (nome,data_compra,data_vencimento,descricao,valor,id_user,status) VALUES (?,?,?,?,?,?,?)",
-    [
-        req.body.nome,
-        req.body.data_compra,
-        req.body.data_vencimento,
-        req.body.descricao,
-        req.body.valor,
-        req.body.id_user,
-        req.body.status        
-    ]
-    );
-    res.redirect("/cadtela");
+    routes.post("/inserirconta",urlencodeParser,(req,res)=>{
+        sql.query("INSERT INTO controle_gastos.contas (nome,data_compra,data_vencimento,descricao,valor,id_user,status) VALUES (?,?,?,?,?,?,?)",
+        [
+            req.body.nome,
+            req.body.data_compra,
+            req.body.data_vencimento,
+            req.body.descricao,
+            req.body.valor,
+            req.body.id_user,
+            req.body.status        
+        ]
+        );
+        res.redirect("/cadtela");
+        
+    });    
+    
+    routes.post("/alterarconta",urlencodeParser,(req,res)=>{
+        sql.query("UPDATE controle_gastos.contas SET nome = ?, data_compra = ?,data_vencimento=?, descricao = ?, valor = ?,  status = ? WHERE (id_conta =?) and (id_user =?)",
+        [
+            req.body.nome,
+            req.body.data_compra,
+            req.body.data_vencimento,
+            req.body.descricao,
+            req.body.valor,
+            req.body.status,
+            req.body.id_conta,
+            idUsuLogado
 
-});    
+        ]
+        );
+        
 
+        res.redirect("/cadtela");
+
+    });
+    routes.get("/alterarconta-tela/:id",(req,res)=>{
+        console.log(req.params.id);
+        
+
+        sql.query("select * from contas where  id_conta=?",req.params.id,(err,results,fields)=>{
+        
+            res.render('alterar',{data: results});
+            console.log(results);
+            
+    
+         });        
+    });
     
 
     //cadastrar contas 
